@@ -51,4 +51,10 @@ public class PedidoDAOImpl implements PedidoDAO {
         Pedido pedido = pedidos.get(id);
         return pedido.getMedicamento();
     }
+
+    @Override
+    public String limpiarDatos() {
+        pedidos.clear();
+        return "Pedidos eliminados con exito";
+    }
 }

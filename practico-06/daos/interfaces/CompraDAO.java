@@ -9,4 +9,5 @@ public interface CompraDAO {
     Compra obtenerCompra(int documento);
     List<Compra> listarCompras();
     String verEstado(int id);
+    String limpiarDatos();
 }

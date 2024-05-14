@@ -65,4 +65,17 @@ public class CompraDAOImplTest {
         String estado = contenedor.getCompraDAO().verEstado(1);
         assertEquals("Compra en proceso", estado);
     }
+
+    @Test
+    void limpiarDatos() {
+        Paciente paciente = new Paciente("Juan Perez", 12345678, null);
+        Medico medico = new Medico("Ana García", 87654321, null, true);
+        Receta receta = new Receta(1, null, paciente, medico);
+        Compra compra = new Compra(1, paciente, receta);
+        contenedor.getCompraDAO().agregarCompra(compra);
+        assertFalse(contenedor.getCompraDAO().listarCompras().isEmpty());
+        String resultado = contenedor.getCompraDAO().limpiarDatos();
+        assertEquals("Compras eliminadas con exito", resultado);
+        assertTrue(contenedor.getCompraDAO().listarCompras().isEmpty());
+    }
 }

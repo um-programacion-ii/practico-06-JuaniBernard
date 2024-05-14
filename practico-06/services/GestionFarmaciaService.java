@@ -12,8 +12,8 @@ public class GestionFarmaciaService {
 
     private GestionFarmaciaService() {
         contenedor = Contenedor.getInstancia();
-        farmacia = new Farmacia();
-        drogueria = new Drogueria();
+        farmacia = Farmacia.getInstancia();
+        drogueria = Drogueria.getInstancia();
     }
 
     public static GestionFarmaciaService getInstancia() {
@@ -36,7 +36,7 @@ public class GestionFarmaciaService {
         return contenedor.getCompraDAO().verEstado(idCompra);
     }
 
-    private void reducirStockFarmacia(Receta receta) {
+    public void reducirStockFarmacia(Receta receta) {
         for (Medicamento medicamento : receta.getMedicamentos()) {
             boolean suficiente = farmacia.hayStockSuficiente(medicamento);
             if (suficiente) {
@@ -47,7 +47,7 @@ public class GestionFarmaciaService {
         }
     }
 
-    private void solicitarMedicamentoADrogueria(Medicamento medicamento) {
+    public void solicitarMedicamentoADrogueria(Medicamento medicamento) {
         int idPedido = contenedor.getPedidoDAO().listarPedidos().size() + 1;
         Pedido pedido = new Pedido(idPedido, medicamento, 5);
         contenedor.getPedidoDAO().agregarPedido(pedido);

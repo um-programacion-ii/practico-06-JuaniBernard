@@ -11,4 +11,5 @@ public interface PedidoDAO {
     List<Pedido> listarPedidos();
     String verEstado(int id);
     Medicamento mostrarMedicamento(int id);
+    String limpiarDatos();
 }

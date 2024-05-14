@@ -2,7 +2,16 @@ package entities;
 
 public class Drogueria {
 
-    public Drogueria() {
+    private static Drogueria instancia;
+
+    private Drogueria() {
+    }
+
+    public static Drogueria getInstancia() {
+        if (instancia == null) {
+            instancia = new Drogueria();
+        }
+        return instancia;
     }
 
     // Método para entregar el stock, simulando ser infinito

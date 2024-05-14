@@ -48,7 +48,7 @@ public class AtencionMedicoService {
         }
     }
 
-    private Medicamento obtenerMedicamentoAleatorio() {
+    public Medicamento obtenerMedicamentoAleatorio() {
         List<Medicamento> medicamentos = contenedor.getMedicamentoDAO().listarMedicamentos();
         int indice = random.nextInt(medicamentos.size());
         return medicamentos.get(indice);

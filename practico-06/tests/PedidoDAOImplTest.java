@@ -65,4 +65,15 @@ public class PedidoDAOImplTest {
         Medicamento medicamentoObtenido = contenedor.getPedidoDAO().mostrarMedicamento(1);
         assertEquals(medicamento, medicamentoObtenido);
     }
+
+    @Test
+    void limpiarDatos() {
+        Medicamento medicamento = new Medicamento(1, "Paracetamol");
+        Pedido pedido = new Pedido(1, medicamento, 5);
+        contenedor.getPedidoDAO().agregarPedido(pedido);
+        assertFalse(contenedor.getPedidoDAO().listarPedidos().isEmpty());
+        String resultado = contenedor.getPedidoDAO().limpiarDatos();
+        assertEquals("Pedidos eliminados con exito", resultado);
+        assertTrue(contenedor.getPedidoDAO().listarPedidos().isEmpty());
+    }
 }

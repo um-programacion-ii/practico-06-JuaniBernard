@@ -44,4 +44,10 @@ public class CompraDAOImpl implements CompraDAO {
         }
         return result;
     }
+
+    @Override
+    public String limpiarDatos() {
+        compras.clear();
+        return "Compras eliminadas con exito";
+    }
 }
