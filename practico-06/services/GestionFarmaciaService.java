@@ -52,9 +52,10 @@ public class GestionFarmaciaService {
         Pedido pedido = new Pedido(idPedido, medicamento, 5);
         contenedor.getPedidoDAO().agregarPedido(pedido);
         // Lógica para finalizar el pedido
-        int stock = drogueria.entregarStock(idPedido);
+        int stock = drogueria.entregarStock(pedido);
         pedido.setEstado(true);
-        contenedor.getPedidoDAO().verEstado(idPedido);
+        String estado = contenedor.getPedidoDAO().verEstado(idPedido);
+        System.out.println(estado);
         // Actualizar el stock de la farmacia
         farmacia.agregarStock(medicamento, stock);
     }
