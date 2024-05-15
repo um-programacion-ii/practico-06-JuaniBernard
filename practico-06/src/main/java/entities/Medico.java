@@ -15,6 +15,6 @@ public class Medico {
     private String nombre;
     private int documento;
     private Especialidad especialidad;
-    private List<ObraSocial> obraSociales;
+    private List<ObraSocial> obrasSociales;
     private boolean particular;
 }

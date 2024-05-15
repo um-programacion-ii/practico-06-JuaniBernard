@@ -9,37 +9,37 @@ import java.util.List;
 import java.util.Map;
 
 public class ObraSocialDAOImpl implements ObraSocialDAO {
-    private Map<String, ObraSocial> obrassociales;
+    private Map<String, ObraSocial> obrasSociales;
 
     public ObraSocialDAOImpl() {
-        obrassociales = new HashMap<>();
+        obrasSociales = new HashMap<>();
     }
 
     @Override
     public String agregarObraSocial(ObraSocial obrasocial) {
-        obrassociales.put(obrasocial.getNombre(), obrasocial);
+        obrasSociales.put(obrasocial.getNombre(), obrasocial);
         return "Obra Social agregada con exito";
     }
 
     @Override
     public ObraSocial obtenerObraSocial(String nombre) {
-        return obrassociales.get(nombre);
+        return obrasSociales.get(nombre);
     }
 
     @Override
     public List<ObraSocial> listarObrasSociales() {
-        return new ArrayList<>(obrassociales.values());
+        return new ArrayList<>(obrasSociales.values());
     }
 
     @Override
     public String eliminarObraSocial(String nombre) {
-        obrassociales.remove(nombre);
+        obrasSociales.remove(nombre);
         return "Obra Social eliminada con exito";
     }
 
     @Override
     public String actualizarObraSocial(ObraSocial obrasocial) {
-        obrassociales.put(obrasocial.getNombre(), obrasocial);
+        obrasSociales.put(obrasocial.getNombre(), obrasocial);
         return "Obra Social actualizada con exito";
     }
 }

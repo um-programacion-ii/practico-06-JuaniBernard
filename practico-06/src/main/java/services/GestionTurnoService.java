@@ -32,7 +32,7 @@ public class GestionTurnoService {
     public List<Medico> listarMedicosPorEspecialidadYObraSocial(String especialidad, String obraSocial) {
         return contenedor.getMedicoDAO().listarMedicos().stream()
                 .filter(medico -> medico.getEspecialidad().getNombre().equals(especialidad) &&
-                        medico.getObraSociales().stream()
+                        medico.getObrasSociales().stream()
                                 .anyMatch(os -> os.getNombre().equals(obraSocial)))
                 .collect(Collectors.toList());
     }
